@@ -20,28 +20,3 @@ test('updateChartData', () => {
   ]
 )
 })
-
-
-
-
-
-
-
-
-// import store from '../../app/store'
-// test('updateChartDate', () => {
-//   const state = {
-//     chartData: []
-//   }
-//   const data = {
-//     start_date: 1641945600000,
-//     end_date: 1642118400000
-//   }
-//   store.updateChartDate(state, data)
-//   expect(state.chartData).toBe(
-//     [
-//       {"date_ms":1641945600000,"performance":0.83},
-//       {"date_ms":1642032000000,"performance":0.31},
-//       {"date_ms":1642118400000,"performance":0.65}]
-//   )
-// })
