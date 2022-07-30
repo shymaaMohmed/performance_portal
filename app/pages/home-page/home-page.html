@@ -1,7 +1,7 @@
 <div class="c-dashboard">
   <div class="c-filters__container">
     <!-- Filter Component. -->
-    <v-search-filter v-on:on-update="testFunc" />
+    <v-search-filter v-on:on-update="testFunc" filter="homePageVm.filter" />
   </div>
 
   <employees-list employees-list="homePageVm.employees"></employees-list>
