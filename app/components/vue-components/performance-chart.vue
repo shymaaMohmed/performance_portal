@@ -1,5 +1,6 @@
 <template>
   <div class="c-chart__container">
+    <div class="error-alert" v-if="axiosError">{{axiosError}}</div>
     <v-chart ref="chart" :option="chartOptions" />
   </div>
 </template>
@@ -28,43 +29,14 @@ use([
 
 export default {
   name: "PerformanceChartComponent",
-
+  props: ['chartData','axiosError'],
   components: {
     VChart,
   },
 
   data() {
     return {
-      chartData: [
-        {
-          date_ms: 1641772800000,
-          performance: 0.2,
-        },
-        {
-          date_ms: 1641859200000,
-          performance: 0.33,
-        },
-        {
-          date_ms: 1641945600000,
-          performance: 0.53,
-        },
-        {
-          date_ms: 1642032000000,
-          performance: 0.31,
-        },
-        {
-          date_ms: 1642118400000,
-          performance: 0.65,
-        },
-        {
-          date_ms: 1642204800000,
-          performance: 0.88,
-        },
-        {
-          date_ms: 1642291200000,
-          performance: 0.07,
-        },
-      ],
+
     };
   },
 
@@ -87,8 +59,30 @@ export default {
           transitionDuration: 0,
           confine: false,
           hideDelay: 0,
-          padding: 0,
+          // padding: 3,
+          backgroundColor : "#333",
+          borderColor: "#333",
+          className: "echarts-tooltip",
+          textStyle: {
+            color: "#FFF"
+          },
+          valueFormatter: (value) => 'Team performance index: ' + value+'%'
         },
+        visualMap: [{
+          show: true,
+          top:'20%',
+          right: '0',
+          type: 'piecewise',
+          splitNumber: 3,
+          pieces: [
+            {min:0, max:50, color: 'red'},
+            {min:50, max:80, color: 'yellow'},
+            {min:80, max:100, color: 'green'}
+          ]
+          
+         
+        },
+        ],
         grid: {
           left: "30px",
           right: "12px",
@@ -125,6 +119,7 @@ export default {
             lineStyle: {
               width: 2,
             },
+           
           },
         ],
       };
@@ -146,3 +141,15 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.error-alert {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #ff000038;
+  border-radius: 5px;
+  padding: 5px 10px;
+
+  font-size: 14px;
+}
+</style>
