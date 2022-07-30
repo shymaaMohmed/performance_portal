@@ -4,7 +4,8 @@ angular.module('appModule')
       enabled: true,
     });
   })
-  .config(($stateProvider) => {
+  .config(($stateProvider, $urlRouterProvider, $provide) => {
+    $urlRouterProvider.otherwise('/404')
     $stateProvider
       .state({
         name: 'app',
@@ -17,5 +18,14 @@ angular.module('appModule')
         name: 'team-performance',
         url: '/team-performance',
         template: '<v-performance-page></v-performance-page>',
-      });
+      })
+      .state({
+        name: '404',
+        url: '/404',
+        template: '<v-not-found></v-not-found>',
+      })
+    $provide.decorator('$sniffer', function ($delegate) {
+      $delegate.history = false;
+      return $delegate;
+    });
   });
