@@ -1,7 +1,7 @@
 <template>
-<div>
-    <input type="text" @input="handleChange" :value="filter">
-    <button> Clear </button>
+<div class="search-filter">
+    <input type="text" @input="(event) => handleChange(event.target.value)" :value="filter" >
+    <button class="c-button" @click="() => handleChange('')"> Clear </button>
 </div>
 
 </template>
@@ -11,9 +11,10 @@ export default {
   name: "searchFilter",
   props: ['filter'],
   methods: {
-   handleChange(event) {
-       this.$emit('onUpdate', event.target.value)
-   }
+   handleChange(param) {
+       this.$emit('onUpdate', param)
+   },
+
   }
 }
 </script>

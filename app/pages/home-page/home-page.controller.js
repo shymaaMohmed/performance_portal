@@ -8,7 +8,8 @@ function homePageController(Employees, $scope, $location) {
   
   homePageVm.employees = [];
 
-  $scope.testFunc = function (someArg) {
+  $scope.getFilter = function (someArg) {
+    console.log(someArg);
     homePageVm.filter = someArg;
     $location.search('filter', someArg);
    }
