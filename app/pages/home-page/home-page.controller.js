@@ -2,10 +2,14 @@ angular
   .module('appModule')
   .controller('homeController', homePageController);
 
-function homePageController(Employees) {
+function homePageController(Employees, $scope) {
   const homePageVm = this;
   homePageVm.employees = [];
 
+  $scope.testFunc = function (someArg) {
+    console.log(someArg);
+   }
+  
   activate();
 
   function activate() {
