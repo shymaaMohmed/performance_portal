@@ -1,10 +1,16 @@
 {
   "name": "instabug-takehome",
   "version": "1.2.1",
+  "scripts": {
+    "test:unit": "vue-cli-service test:unit",
+    "start": "webpack-dev-server --open --progress",
+    "test": "jest"
+  },
   "dependencies": {
     "@uirouter/angularjs": "^1.0.30",
     "@vue/composition-api": "^1.4.4",
     "angular": "^1.8.2",
+    "axios": "^0.27.2",
     "echarts": "^5.2.2",
     "moment": "^2.29.1",
     "ngVue": "^1.7.8",
@@ -15,7 +21,11 @@
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/preset-env": "^7.8.7",
+    "@vue/cli-plugin-unit-jest": "~4.5.15",
+    "@vue/test-utils": "^2.0.2",
+    "@vue/vue2-jest": "28",
     "angularjs-template-loader": "^0.1.2",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
     "eslint": "^8.6.0",
@@ -33,14 +43,11 @@
     "jest": "^27.4.7",
     "node-sass": "^7.0.1",
     "sass-loader": "^12.4.0",
+    "vue-jest": "^3.0.7",
     "vue-loader": "^15.9.8",
     "vue-style-loader": "^4.1.3",
-    "vue-template-compiler": "^2.6.14",
     "webpack": "^5.66.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.7.3"
-  },
-  "scripts": {
-    "start": "webpack-dev-server --open --progress"
   }
 }
