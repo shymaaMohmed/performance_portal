@@ -1,13 +1,13 @@
 angular
   .module('appModule')
   .controller('homeController', homePageController);
-
-function homePageController(Employees, $scope) {
+function homePageController(Employees, $scope, $location) {
   const homePageVm = this;
   homePageVm.employees = [];
 
   $scope.testFunc = function (someArg) {
     console.log(someArg);
+    $location.search('filter', someArg);
    }
   
   activate();
