@@ -59,8 +59,30 @@ export default {
           transitionDuration: 0,
           confine: false,
           hideDelay: 0,
-          padding: 0,
+          // padding: 3,
+          backgroundColor : "#333",
+          borderColor: "#333",
+          className: "echarts-tooltip",
+          textStyle: {
+            color: "#FFF"
+          },
+          valueFormatter: (value) => 'Team performance index: ' + value+'%'
         },
+        visualMap: [{
+          show: true,
+          top:'20%',
+          right: '0',
+          type: 'piecewise',
+          splitNumber: 3,
+          pieces: [
+            {min:0, max:50, color: 'red'},
+            {min:50, max:80, color: 'yellow'},
+            {min:80, max:100, color: 'green'}
+          ]
+          
+         
+        },
+        ],
         grid: {
           left: "30px",
           right: "12px",
@@ -97,6 +119,7 @@ export default {
             lineStyle: {
               width: 2,
             },
+           
           },
         ],
       };
